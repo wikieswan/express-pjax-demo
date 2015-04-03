@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>pjax demo</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery.pjax.js"></script>
+	
+	</head>
+	<body>
+		  <h1>My Site</h1>
+		  <div class="container" id="pjax-container">
+		    Go to <a href="/page/2">next page</a>.
+		  </div>
+	</body>
+	<script type="text/javascript">
+		$(document).pjax('a', '#pjax-container')
+		$(function(){
+			function fetch(){
+				$.ajax({
+		            'url' : '127.0.0.1:3000/api',
+		                      
+		            'dataType' : 'json',
+		            'type' : 'GET'
+		        }).done(function(data) {
+		            console.log(data)
+
+		        });	
+			}
+			 
+		});
+		
+	</script>
+</html>
